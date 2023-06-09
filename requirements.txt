@@ -21,3 +21,4 @@ mixture_of_experts
 sentencepiece
 transformers
 deepspeed
+coremltools
