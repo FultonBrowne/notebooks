@@ -12,9 +12,9 @@ def fromPyTorch(sampleinput, tracedmodel):
 model = AutoModelForCausalLM.from_pretrained("gpt2")
 # TRACE THE MODEL
 model.eval()
-example_input = torch.randint(10000, (768,768))
+example_input = torch.randint(10000, (768,1))
 print(model)
 traced_model = torch.jit.trace(model, example_input)
 # EXPORT THE MODEL
-out = traced_model(example_input)    
+out = traced_model(example_input, traced_model)    
 fromPyTorch(None, None).save("out.mlpackage")
